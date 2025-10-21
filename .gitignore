@@ -1,0 +1,6 @@
+/bin
+.vscode
+*.o
+/obj
+*.json
+*.a
