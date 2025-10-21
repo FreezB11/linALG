@@ -5,8 +5,8 @@
   <br>A simple Linear ALGEBRA<br>
 </h2>
 
-![GitHub Created At](https://img.shields.io/github/created-at/FreezB11/xmd4)
-![GitHub contributors](https://img.shields.io/github/contributors/FreezB11/xmd4)
+![GitHub Created At](https://img.shields.io/github/created-at/FreezB11/linALG)
+![GitHub contributors](https://img.shields.io/github/contributors/FreezB11/linALG)
 
 
 
