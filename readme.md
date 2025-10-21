@@ -10,8 +10,8 @@
 
 
 
-1. Core Data structures
-Matrix
+# 1. Core Data structures
+### Matrix
  - Matrix(rows, cols)
  - Identity(n)
  - zeros(rows, cols)
@@ -27,7 +27,7 @@ Matrix
  - subMatrix(row_start, row_end, cols_start, cols_end)
  - AppendRow() / AppendCols()
  - Flatten()
-Vector
+### Vector
  - vector(n)
  - zeros(n)
  - ones(n)
@@ -38,7 +38,7 @@ Vector
  - Norm()
  - Normalize()
 
-2. Basix matrix ops
+# 2. Basix matrix ops
  - Add(a, b)
  - Subtract(a, b)
  - multiply(a, b)
@@ -54,7 +54,7 @@ Vector
  - rank(a)
  - Norm(a, type)
 
-3. Matrix constructors and utilities
+# 3. Matrix constructors and utilities
  - diagonal(a)
  - upperTriangular(a)
  - lowerTriangular(a)
@@ -71,17 +71,17 @@ Vector
  - tofile()
  - fromfile()
 
-4. Solving Linear System
+# 4. Solving Linear System
 for solving Ax=B
- - SolveGaussian(a,b)
- - SolveLU(a,b)
- - SolveCholesky(A,b)
- - SolveQR(a,b)
- - SolveJacobi(a,b) iterative
- - SolveGaussSeidel(A,b)
- - LeastSquares(a, b) (minimize ||Ax-b||^2)
+ - [x] SolveGaussian(a,b)
+ - [ ] SolveLU(a,b)
+ - [ ] SolveCholesky(A,b)
+ - [ ] SolveQR(a,b)
+ - [ ] SolveJacobi(a,b) iterative
+ - [ ] SolveGaussSeidel(A,b)
+ - [ ] LeastSquares(a, b) (minimize ||Ax-b||^2)
 
-5. Matrix Decompositions
+# 5. Matrix Decompositions
  - LUDecompose(A)
  - QRDecompose(A)
  - CholeskyDecompose(A)
@@ -90,7 +90,7 @@ for solving Ax=B
  - SchurDecompose(A)
  - PolarDecompose(A)
 
-6. additional funcs
+# 6. additional funcs
  - Mean(vector)
  - Variance(vector)
  - Covariance(matrix)
@@ -99,12 +99,12 @@ for solving Ax=B
  - Projection(matrix, subspace)
  - RegressionCoeff(x, y)
 
-7. Utilities
-i/o
+# 7. Utilities
+### i/o
  - load/save matrices in .csv, .txt, .json
-benchmarking
+### benchmarking
  - meausre time for multiply/solve/decompose
-random generator
+### random generator
  - uniform, normal, gaussian
-SIMD optimization
+### SIMD optimization
  - vector based instruction
