@@ -55,6 +55,12 @@ public:
             dst = dst->nxt;
         }
     };
+    int rows(){
+        return this->m;
+    }
+    int cols(){
+        return this->n;
+    }
     // Assignment operator
     // matrix<T>& operator=(const matrix<T>& other){
     //     if (this == &other) return *this; // self-assignment check
@@ -111,7 +117,7 @@ public:
     T get(idx x, idx y);
     
     //element access (x,y)
-    T operator()(idx x, idx y){
+    T& operator()(idx x, idx y){
         // return data[x*m + y];
         node<T>* curr = matrix_data->head;
         for(size_t i = 0; i < x && curr; ++i)
