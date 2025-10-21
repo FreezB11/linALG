@@ -1,0 +1,3 @@
+[submodule "src/include/LinALG/Extern/simde"]
+	path = src/include/LinALG/Extern/simde
+	url = https://github.com/simd-everywhere/simde.git
