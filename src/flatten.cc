@@ -39,3 +39,27 @@ T* matrix<T>::flatten() {
 
     return flat;
 }
+
+// template<typename T>
+// T* matrix<T>::flatten() {
+//     size_t rows = m;
+//     size_t cols = n;
+//     T* flat = new T[rows * cols];
+
+//     node<T>* curr = matrix_data->head;
+//     size_t row_offset = 0;
+
+//     while (curr) {
+//         for (size_t j = 0; j < cols; ++j)
+//             flat[row_offset + j] = curr->data[j];
+//         row_offset += cols;
+//         curr = curr->nxt;
+//     }
+
+//     return flat;
+// }
+
+
+template float* matrix<float>::flatten();
+template double* matrix<double>::flatten();
+template int* matrix<int>::flatten();

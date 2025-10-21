@@ -342,6 +342,8 @@ public:
     bool isInvertable();
 
     T* flatten(); // <-- implementation in different file flatten.cc
+    void unflatten(T* flat);
+
     bool toFile();
     bool fromFile();
 
