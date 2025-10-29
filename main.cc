@@ -1,6 +1,6 @@
 #include <iostream>
-#include "./src/include/LinALG/matrix.h"
-#include "./src/include/LinALG/Solver/gaussian.h"
+#include <LinALG/matrix.h>
+#include <LinALG/Solver/gaussian.h>
 
 
 int main(){
@@ -11,9 +11,13 @@ int main(){
     // matrix<float> neww = test.multiply(test);
     // neww.print();
 
-    // // random unit test
-    // matrix<float> randd(4,4);
-    // randd.print();
+    // random unit test
+    matrix<float> randd(40,40);
+    randd.random();
+    randd.print();
+    cout << "\n";
+    randd.swap_row(0,3);
+    randd.print();
 
     // gaussian elimination test
     matrix<float> gauss(3,4);

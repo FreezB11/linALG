@@ -18,17 +18,19 @@ GXX = g++
 NVCC = nvcc
 CXXFLAGS = -O2 -std=c++17
 INCLUDE = -I./src/include
-LIBS = -lblas -lopenblas -lcublas -lcudart
+LIBS = -lblas -lopenblas -lcublas -lcudart -mavx
 
 # Directories
 SRCDIR = ./src
 EXTERNDIR = ./src/extern
 OBJDIR = ./obj
 BINDIR = ./bin
+TESTDIR = ./src/tests/
 
 # Source files
 SRCS = $(shell find $(SRCDIR) -name "*.cc")
 OBJS = $(patsubst $(SRCDIR)/%.cc,$(OBJDIR)/%.o,$(SRCS))
+TESTS = $(shell find $(TESTDIR) -name "*.cc")
 EXTERN_OBJS = $(OBJDIR)/cublas.o
 
 # Output
@@ -57,6 +59,18 @@ $(LIB_NAME): $(OBJS) $(EXTERN_OBJS)
 # Build main executable
 $(MAIN_EXE): main.cc $(LIB_NAME)
 	$(GXX) main.cc $(LIB_NAME) $(INCLUDE) $(LIBS) -o $@
+
+# Build and run tests
+test: $(LIB_NAME)
+	@mkdir -p $(BINDIR)
+	@for t in $(TESTS); do \
+		test_name=$$(basename $$t .cc); \
+		echo "Compiling test: $$test_name"; \
+		$(GXX) $$t $(LIB_NAME) $(INCLUDE) $(LIBS) -o $(BINDIR)/$$test_name; \
+		echo "Running test: $$test_name"; \
+		./$(BINDIR)/$$test_name || exit 1; \
+	done
+	@echo "✅ All tests completed successfully."
 
 # Clean build files
 clean:

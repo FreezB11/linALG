@@ -79,7 +79,7 @@ for solving Ax=B
  - [ ] SolveQR(a,b)
  - [ ] SolveJacobi(a,b) iterative
  - [ ] SolveGaussSeidel(A,b)
- - [ ] LeastSquares(a, b) (minimize ||Ax-b||^2)
+ - [ ] LeastSquares(a, b) (minimize ||Ax-b||<sup>2</sup>)
 
 # 5. Matrix Decompositions
  - LUDecompose(A)

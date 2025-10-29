@@ -133,17 +133,43 @@ public:
         }
         if (row1 == row2) return; // Nothing to do
         
-        node<T>* r1 = matrix_data->head;
-        node<T>* r2 = matrix_data->head;
-        for(size_t i = 0; i < row1; i++) r1 = r1->nxt;
-        for(size_t i = 0; i < row2; i++) r2 = r2->nxt;
+        // node<T>* r1 = matrix_data->head;
+        // node<T>* r2 = matrix_data->head;
+        // for(size_t i = 0; i < row1; i++) r1 = r1->nxt;
+        // for(size_t i = 0; i < row2; i++) r2 = r2->nxt;
 
-        for (size_t j = 0; j < n; j++)
-            swap(r1->data[j], r2->data[j]);
+        // for (size_t j = 0; j < n; j++)
+        //     swap(r1->data[j], r2->data[j]);
         
         // for (size_t col = 0; col < n; ++col) {
         //     std::swap((*this)(row1, col), (*this)(row2, col));
         // }
+
+        node<T>* prev1 = nullptr;
+        node<T>* prev2 = nullptr;
+        node<T>* curr1 = matrix_data->head;
+        node<T>* curr2 = matrix_data->head;
+
+        for(size_t i = 0; i < row1; i++){
+            prev1 = curr1;
+            curr1 = curr1->nxt;
+        }
+        for(size_t i = 0; i < row2; i++){
+            prev2 = curr2;;
+            curr2 = curr2->nxt;
+        }
+         // Now swap their links
+        if (prev1) prev1->nxt = curr2;
+        if (prev2) prev2->nxt = curr1;
+
+        // Swap the 'nxt' pointers of the two nodes
+        node<T>* temp = curr1->nxt;
+        curr1->nxt = curr2->nxt;
+        curr2->nxt = temp;
+
+        // if we swapped the head, fix it
+        if(row1 == 0) matrix_data->head = curr2;
+        else if(row2 == 0) matrix_data->head = curr1;
     }
     // to set given value at (x, y)
     // this will be a bool to get a error if x,y is out of bounds
